@@ -3,7 +3,7 @@ body {
 	   and use the OS’s UI font as the website font
 	 */
   font: 100%/1.5 system-ui;
-	max-width: 50ch;
+	max-width: 70ch;
 	padding: 1rem;
-	margin-inline: max(1em, (100% - 50ch) / 2);
+	margin-inline: max(1em, (100% - 70ch) / 2);
 }
