@@ -7,3 +7,17 @@ body {
 	padding: 1rem;
 	margin-inline: max(1em, (100% - 70ch) / 2);
 }
+
+nav {
+  display: flex;
+	margin-bottom: 1em;
+	border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+	padding: 0.5em;
+}
