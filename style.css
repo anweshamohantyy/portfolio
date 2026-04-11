@@ -8,6 +8,14 @@ body {
 	margin-inline: max(1em, (100% - 70ch) / 2);
 }
 
+:root {
+  --color-accent: oklch(65% 50% 0);
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+
 nav {
   display: flex;
 	margin-bottom: 1em;
@@ -20,9 +28,37 @@ nav a {
   color: inherit;
   text-align: center;
 	padding: 0.5em;
+	border-bottom: 0.4em solid transparent;
 }
 
 nav a.current {
   border-bottom: 0.4em solid oklch(80% 3% 200);
   padding-bottom: 0.1em;
+	border-bottom-color: var(--color-accent);
+}
+
+nav a:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+button {
+  grid-column: 1 / -1;
 }
