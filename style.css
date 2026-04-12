@@ -135,3 +135,8 @@ li {
 section p {
   margin: 0.35em 0;
 }
+
+.resume-contact a {
+  color: inherit;
+  text-decoration: underline;
+}
