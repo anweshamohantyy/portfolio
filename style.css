@@ -87,3 +87,51 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 400%;
 }
+
+.resume-contact {
+  margin-bottom: 2rem;
+}
+
+.resume-contact p {
+  margin: 0.2em 0;
+}
+
+section {
+  margin-block: 2rem;
+}
+
+section h2 {
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.75em;
+  font-size: 1.5em;
+}
+
+article {
+  margin-block: 1.5rem;
+}
+
+article h3 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+time {
+  display: block;
+  color: #666;
+  font-style: italic;
+  margin: 0.2em 0 0.75em 0;
+}
+
+ul {
+  margin: 0.5em 0 0 0;
+  padding-left: 1.25em;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+section p {
+  margin: 0.35em 0;
+}
