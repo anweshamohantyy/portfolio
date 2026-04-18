@@ -164,7 +164,7 @@ article:hover {
 }
 
 section {
-  background: white;
+  background: canvas;
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 10px;
