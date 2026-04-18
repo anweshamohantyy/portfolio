@@ -75,3 +75,10 @@ select.addEventListener("input", function (event) {
   );
   localStorage.colorScheme = event.target.value;
 });
+
+if ("colorScheme" in localStorage) {
+  let saved = localStorage.colorScheme;
+
+  document.documentElement.style.setProperty("color-scheme", saved);
+  select.value = saved;
+}
