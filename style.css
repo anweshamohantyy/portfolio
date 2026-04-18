@@ -48,7 +48,8 @@ nav a:hover {
 
 input,
 textarea,
-button {
+button,
+select {
   font: inherit;
 }
 
@@ -168,4 +169,11 @@ section {
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
 }
