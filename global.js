@@ -133,6 +133,13 @@ export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
 
+article.innerHTML = `
+  <${headingLevel}>${project.title}</${headingLevel}>
+  <img src="${project.image}" alt="${project.title}">
+  <p>Year: ${project.year}</p>
+  <p>${project.description}</p>
+`;
+
 
 
 
