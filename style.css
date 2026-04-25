@@ -1,13 +1,26 @@
 html {
   color-scheme: light dark;
+  accent-color: var(--color-accent);
 }
 
+:root {
+  --color-accent: oklch(65% 50% 0);
+}
+
+/* BODY */
+body {
+  font: 100%/1.5 system-ui;
+  max-width: 70ch;
+  padding: 1rem;
+  margin-inline: max(1em, (100% - 70ch) / 2);
+}
+
+/* HOME PAGE */
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   margin-top: 4rem;
 }
 
@@ -16,20 +29,33 @@ html {
   border-radius: 10px;
 }
 
-body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
-  font: 100%/1.5 system-ui;
-	max-width: 70ch;
-	padding: 1rem;
-	margin-inline: max(1em, (100% - 70ch) / 2);
+/* NAV */
+nav {
+  display: flex;
+  margin-bottom: 1em;
+  border-bottom: 1px solid oklch(50% 10% 200 / 40%);
 }
 
-:root {
-  --color-accent: oklch(65% 50% 0);
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  border-bottom: 0.4em solid transparent;
 }
 
+nav a.current {
+  border-bottom: 0.4em solid oklch(50% 10% 200 / 40%);
+  padding-bottom: 0.1em;
+}
+
+nav a:hover {
+  border-bottom-color: var(--color-accent);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+/* BUTTONS */
 button {
   background-color: var(--color-accent);
   color: white;
@@ -43,35 +69,7 @@ button:hover {
   background-color: color-mix(in oklch, var(--color-accent), black 15%);
 }
 
-html {
-  accent-color: var(--color-accent);
-}
-
-nav {
-  display: flex;
-	margin-bottom: 1em;
-	border-bottom: 1px solid oklch(50% 10% 200 / 40%);
-}
-
-nav a {
-  flex: 1;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-	padding: 0.5em;
-	border-bottom: 0.4em solid transparent;
-}
-
-nav a.current {
-  border-bottom: 0.4em solid oklch(50% 10% 200 / 40%);
-  padding-bottom: 0.1em;
-}
-
-nav a:hover {
-  border-bottom-color: var(--color-accent);
-	background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-}
-
+/* FORMS */
 input,
 textarea,
 button,
@@ -95,22 +93,7 @@ button {
   grid-column: 1 / -1;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1em;
-}
-
-.projects article {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-}
-
-.projects h2 {
-  margin: 0;
-}
-
+/* HEADINGS */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
@@ -120,6 +103,7 @@ h1 {
   font-size: 400%;
 }
 
+/* RESUME */
 .resume-contact {
   margin-bottom: 2rem;
 }
@@ -130,6 +114,11 @@ h1 {
 
 section {
   margin-block: 2rem;
+  background: canvas;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 section h2 {
@@ -146,6 +135,13 @@ article {
 article h3 {
   margin: 0;
   font-size: 1.1em;
+}
+
+article:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
 time {
@@ -173,21 +169,7 @@ section p {
   text-decoration: underline;
 }
 
-article:hover {
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-  padding: 10px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-section {
-  background: canvas;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
+/* COLOR SCHEME TOGGLE */
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -195,6 +177,7 @@ section {
   font-size: 80%;
 }
 
+/* GITHUB STATS */
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -210,9 +193,43 @@ section {
   grid-row: 2;
   margin: 0;
 }
+
+/* ========================= */
+/* PROJECTS (FIXED CLEAN) */
+/* ========================= */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.projects article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
 .projects img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.projects p {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.projects article * {
+  max-width: 100%;
 }
