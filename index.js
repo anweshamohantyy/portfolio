@@ -6,7 +6,6 @@ const latestProjects = projects.slice(0, 3);
 const projectsContainer = document.querySelector('.projects');
 renderProjects(latestProjects, projectsContainer, 'h2');
 
-// 👇 FIXED variable name
 const profile = await fetchGitHubData('anweshamohantyy');
 
 const profileStats = document.querySelector('#profile-stats');
