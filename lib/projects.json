@@ -1,8 +1,8 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione libero facilis ut doloremque, ipsam eveniet sit eos corporis quasi autem quidem, molestias iure rerum sequi, inventore incidunt dolorum similique laborum."
+        "title": "Moove",
+        "image": "moove.png",
+        "description": "Designed a housing platform that streamlines the off-campus housing search for over 85% of UC Davis students. Includes student-centric filters, Roomie Hub, verified listings, student reviews, in-app messaging, study score, etc."
     },
     {
         "title": "Pariatur aliquam quae doloribus.",
