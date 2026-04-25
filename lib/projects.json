@@ -3,7 +3,7 @@
     "title": "Power Outage Analysis",
     "year": "2026",
     "image": "../images/outage.png",
-    "description": "A data analysis project examining major U.S. power outages to understand how factors like weather, location, and cause type affect outage duration. The project combines data cleaning, exploratory analysis, and modeling to identify trends and predict outage severity. Check it out here!: https://anweshamohantyy.github.io/power_outages_analysis/"
+    "description": "A data analysis project examining major U.S. power outages. The project combines data cleaning, exploratory analysis, and modeling. Check it out here!: https://anweshamohantyy.github.io/power_outages_analysis/"
   },
   {
     "title": "Lumnus Consulting Branding Board",
