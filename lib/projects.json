@@ -2,43 +2,43 @@
   {
     "title": "Power Outage Analysis",
     "year": "2026",
-    "image": "../images/outage.png",
+    "image": "/portfolio/images/outage.png",
     "description": "A data analysis project examining major U.S. power outages. The project combines data cleaning, exploratory analysis, and modeling to identify trends in outage severity."
   },
   {
     "title": "Lumnus Consulting Branding Board",
     "year": "2026",
-    "image": "../images/lumnus.png",
+    "image": "/portfolio/images/lumnus.png",
     "description": "Developed a comprehensive branding board for Lumnus Consulting, defining the organization’s visual identity through color palettes, typography, and design guidelines to ensure consistency across marketing materials. Aligned the brand with the organization’s values and audience, creating a cohesive and recognizable presence across social media and outreach efforts."
   },
   {
     "title": "Price Premium vs Food Proccessing in Grocery Stores Analysis",
     "year": "2026",
-    "image": "../images/food.png",
+    "image": "/portfolio/images/food.png",
     "description": "A data analysis project comparing food prices and processing levels across Whole Foods, Target, and Walmart, revealing that Whole Foods often charges significantly higher prices despite minimal differences in processing."
   },
   {
     "title": "Moove",
     "year": "2025",
-    "image": "../images/moove.png",
+    "image": "/portfolio/images/moove.png",
     "description": "Designed a housing platform that streamlines the off-campus housing search for over 85% of UC Davis students. Includes student-centric filters, Roomie Hub, verified listings, student reviews, in-app messaging, study score, etc."
   },
   {
     "title": "Audio Emotion Classifier",
     "year": "2025",
-    "image": "../images/audio.png",
+    "image": "/portfolio/images/audio.png",
     "description": "A machine learning project that classifies emotions from audio using Librosa for feature extraction, analyzing sound features like pitch and tone to predict emotions such as happy, sad, or neutral."
   },
   {
     "title": "Voguify",
     "year": "2024",
-    "image": "../images/voguify.png",
+    "image": "/portfolio/images/voguify.png",
     "description": "A budgeting and styling app that helps college students plan outfits while staying within their budget, offering style inspiration alongside tools to track spending on clothing."
   },
   {
     "title": "Snap Stitch",
     "year": "2024",
-    "image": "../images/fig2.png",
+    "image": "/portfolio/images/fig2.png",
     "description": "A computer vision model that automatically stitches multiple overlapping images into a single seamless panorama by detecting key features, aligning images, and blending them smoothly for a natural, high-quality result."
   },
   {
