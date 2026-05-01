@@ -277,3 +277,24 @@ section p {
   background-color: var(--color);
   border-radius: 50%;
 }
+
+/* Hover effect */
+svg:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+/* Selected wedge style */
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
