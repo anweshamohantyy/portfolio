@@ -247,12 +247,19 @@ section p {
   overflow: visible;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
 .legend {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
   list-style: none;
   padding: 0.5em;
-  margin: 0.5em 0;
+  margin: 0;
   border: 1px solid #ccc;
   gap: 0.5em;
 }
