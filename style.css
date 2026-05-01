@@ -233,3 +233,10 @@ section p {
 .projects article * {
   max-width: 100%;
 }
+
+.project-year {
+  font-family: Baskerville, serif;
+  font-variant-numeric: oldstyle-nums;
+  font-style: italic;
+  color: #666;
+}
