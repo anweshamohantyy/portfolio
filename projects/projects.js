@@ -9,6 +9,14 @@ title.textContent = `${projects.length} Projects`;
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 let selectedIndex = -1;
+let query = '';
+
+function getFilteredProjects() {
+  return projects.filter((project) => {
+    let matchesQuery = Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase());
+    return matchesQuery;
+  });
+}
 
 function renderPieChart(projectsGiven) {
   let svg = d3.select('svg');
@@ -46,6 +54,13 @@ function renderPieChart(projectsGiven) {
           .attr('class', (_, idx) =>
             idx === selectedIndex ? 'legend-item selected' : 'legend-item'
           );
+
+        // Filter by BOTH query and selected year
+        let filtered = getFilteredProjects();
+        if (selectedIndex !== -1) {
+          filtered = filtered.filter((p) => p.year == newData[selectedIndex].label);
+        }
+        renderProjects(filtered, projectsContainer, 'h2');
       });
   });
 
@@ -62,17 +77,22 @@ function renderPieChart(projectsGiven) {
 renderProjects(projects, projectsContainer, 'h2');
 renderPieChart(projects);
 
-let query = '';
 let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('change', (event) => {
   query = event.target.value;
 
-  let filteredProjects = projects.filter((project) => {
-    let values = Object.values(project).join('\n').toLowerCase();
-    return values.includes(query.toLowerCase());
-  });
+  // Filter by BOTH query and selected year
+  let filtered = getFilteredProjects();
+  if (selectedIndex !== -1) {
+    let svg = d3.select('svg');
+    let currentData = d3.rollups(filtered, (v) => v.length, (d) => d.year)
+      .map(([year, count]) => ({ value: count, label: year }));
+    if (currentData[selectedIndex]) {
+      filtered = filtered.filter((p) => p.year == currentData[selectedIndex].label);
+    }
+  }
 
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  renderPieChart(filteredProjects);
+  renderProjects(filtered, projectsContainer, 'h2');
+  renderPieChart(getFilteredProjects());
 });
