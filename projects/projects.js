@@ -8,10 +8,11 @@ title.textContent = `${projects.length} Projects`;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let selectedIndex = -1;
 
 function renderPieChart(projectsGiven) {
-  let newSVG = d3.select('svg');
-  newSVG.selectAll('path').remove();
+  let svg = d3.select('svg');
+  svg.selectAll('path').remove();
   d3.select('.legend').selectAll('li').remove();
 
   let newRolledData = d3.rollups(
@@ -27,16 +28,33 @@ function renderPieChart(projectsGiven) {
   let newArcData = newSliceGenerator(newData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
 
-  newArcs.forEach((arc, idx) => {
-    newSVG.append('path').attr('d', arc).attr('fill', colors(idx));
+  newArcs.forEach((arc, i) => {
+    svg
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', colors(i))
+      .attr('class', i === selectedIndex ? 'selected' : '')
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+
+        svg
+          .selectAll('path')
+          .attr('class', (_, idx) => idx === selectedIndex ? 'selected' : '');
+
+        legend
+          .selectAll('li')
+          .attr('class', (_, idx) =>
+            idx === selectedIndex ? 'legend-item selected' : 'legend-item'
+          );
+      });
   });
 
   let legend = d3.select('.legend');
-  newData.forEach((d, idx) => {
+  newData.forEach((d, i) => {
     legend
       .append('li')
-      .attr('style', `--color:${colors(idx)}`)
-      .attr('class', 'legend-item')
+      .attr('style', `--color:${colors(i)}`)
+      .attr('class', i === selectedIndex ? 'legend-item selected' : 'legend-item')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
 }
