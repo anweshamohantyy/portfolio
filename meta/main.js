@@ -42,24 +42,25 @@ function processCommits(data) {
 function renderCommitInfo(data, commits) {
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
-  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-  dl.append('dd').text(data.length);
-
-  dl.append('dt').text('Total commits');
-  dl.append('dd').text(commits.length);
-
-  dl.append('dt').text('Number of files');
-  dl.append('dd').text(d3.group(data, d => d.file).size);
-
-  dl.append('dt').text('Max depth');
-  dl.append('dd').text(d3.max(data, d => d.depth));
-
-  dl.append('dt').text('Longest line (chars)');
-  dl.append('dd').text(d3.max(data, d => d.length));
-
   const fileLengths = d3.rollups(data, v => d3.max(v, v => v.line), d => d.file);
-  dl.append('dt').text('Avg file length');
-  dl.append('dd').text(Math.round(d3.mean(fileLengths, d => d[1])));
+  const stats = [
+    { label: 'Total <abbr title="Lines of code">LOC</abbr>', value: data.length, html: true },
+    { label: 'Total commits', value: commits.length },
+    { label: 'Number of files', value: d3.group(data, d => d.file).size },
+    { label: 'Max depth', value: d3.max(data, d => d.depth) },
+    { label: 'Longest line (chars)', value: d3.max(data, d => d.length) },
+    { label: 'Avg file length', value: Math.round(d3.mean(fileLengths, d => d[1])) },
+  ];
+
+  for (const stat of stats) {
+    const div = dl.append('div');
+    if (stat.html) {
+      div.append('dt').html(stat.label);
+    } else {
+      div.append('dt').text(stat.label);
+    }
+    div.append('dd').text(stat.value);
+  }
 }
 
 function renderTooltipContent(commit) {
