@@ -315,3 +315,12 @@ path {
   font-weight: bold;
   margin: 0;
 }
+
+.gridlines line {
+  stroke: #ddd;
+  stroke-opacity: 0.5;
+}
+
+.gridlines path {
+  display: none;
+}
