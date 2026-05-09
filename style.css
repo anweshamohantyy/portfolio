@@ -297,3 +297,21 @@ path {
     fill: var(--color);
   }
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.stats dt {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: gray;
+}
+
+.stats dd {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
