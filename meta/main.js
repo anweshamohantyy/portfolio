@@ -148,11 +148,10 @@ function brushed(event) {
 }
 
 function createBrushSelector(svg) {
-  svg.call(d3.brush().on('start brush end', brushed));
+  svg.call(d3.brush().on('brush end', brushed));
   svg.selectAll('.dots, .overlay ~ *').raise();
 }
 
-// Make xScale and yScale available outside renderScatterPlot
 let xScale, yScale;
 
 function renderScatterPlot(data, commits) {
