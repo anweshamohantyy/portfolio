@@ -298,6 +298,7 @@ path {
   }
 }
 
+/* META STATS */
 .stats {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -314,9 +315,10 @@ path {
 }
 
 .stats dt {
-  font-size: 0.75em;
+  font-size: 0.65em;
   text-transform: uppercase;
   color: gray;
+  white-space: nowrap;
 }
 
 .stats dd {
@@ -385,20 +387,32 @@ circle.selected {
   animation: marching-ants 2s linear infinite;
 }
 
+/* LANGUAGE BREAKDOWN */
 #language-breakdown {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem 1rem;
-  font-size: 1rem;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: color-mix(in oklch, canvas 90%, canvastext 10%);
+  border-radius: 10px;
+}
+
+#language-breakdown div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 #language-breakdown dt {
-  font-size: 0.8em;
+  font-size: 0.65em;
   text-transform: uppercase;
   color: gray;
+  white-space: nowrap;
 }
 
 #language-breakdown dd {
+  font-size: 1.25em;
   font-weight: bold;
-  margin: 0 0 1rem 0;
+  margin: 0;
 }
