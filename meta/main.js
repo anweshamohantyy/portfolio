@@ -46,3 +46,36 @@ function processCommits(data) {
 let data = await loadData();
 let commits = processCommits(data);
 console.log(commits);
+
+function renderCommitInfo(data, commits) {
+  const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+  // Total LOC
+  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+  dl.append('dd').text(data.length);
+
+  // Total commits
+  dl.append('dt').text('Total commits');
+  dl.append('dd').text(commits.length);
+
+  // Number of files
+  dl.append('dt').text('Number of files');
+  dl.append('dd').text(d3.group(data, d => d.file).size);
+
+  // Maximum depth
+  dl.append('dt').text('Max depth');
+  dl.append('dd').text(d3.max(data, d => d.depth));
+
+  // Longest line
+  dl.append('dt').text('Longest line (chars)');
+  dl.append('dd').text(d3.max(data, d => d.length));
+
+  // Average file length
+  const fileLengths = d3.rollups(data, v => d3.max(v, v => v.line), d => d.file);
+  dl.append('dt').text('Avg file length');
+  dl.append('dd').text(Math.round(d3.mean(fileLengths, d => d[1])));
+}
+
+let data = await loadData();
+let commits = processCommits(data);
+renderCommitInfo(data, commits);
