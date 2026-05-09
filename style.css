@@ -378,5 +378,19 @@ circle.selected {
 }
 
 #language-breakdown {
-  font-size: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+#language-breakdown dt {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: gray;
+}
+
+#language-breakdown dd {
+  font-weight: bold;
+  margin: 0 0 1rem 0;
 }
